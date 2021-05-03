@@ -1,0 +1,31 @@
+{
+  "name": "hexo-anywhere",
+  "version": "1.0.0",
+  "description": "",
+  "main": "api/index.js",
+  "scripts": {
+    "start": "node api/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hans362/hexo-anywhere.git"
+  },
+  "author": "Hans Yu",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/hans362/hexo-anywhere/issues"
+  },
+  "homepage": "https://github.com/hans362/hexo-anywhere#readme",
+  "dependencies": {
+    "axios": "^0.18.1",
+    "config-lite": "^3.0.0",
+    "connect-flash": "^0.1.1",
+    "connect-session-firebase": "^5.13.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "express-formidable": "^1.2.0",
+    "express-session": "^1.17.1",
+    "firebase-admin": "^5.13.1"
+  }
+}

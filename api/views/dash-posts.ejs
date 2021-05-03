@@ -1,0 +1,47 @@
+<%- include('components/head') %>
+
+    <body style="position: relative; margin-top: 49px; height: calc(100% - 49px); overflow-y: overlay; ">
+        <%- include('components/nav') %>
+
+            <div style="margin-top: 28px; ">
+                <div class="ui main container">
+
+                    <%- include('components/notification') %>
+
+                        <table class="ui very basic center aligned table">
+                            <thead>
+                                <tr>
+
+                                    <th class="one wide">状态</th>
+                                    <th class="left aligned">文章名称</th>
+                                    <th class="two wide">发布时间</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                        <% articleList.forEach(article => { %>
+                                <tr style="height: 44px; ">
+                                    <td>
+                                        <a href="">
+                                            <span class="status accepted">
+                                                <i class="checkmark icon"></i>
+                                            </span>
+                                        </a>
+                                    </td>
+                                    <td class="left aligned">
+                                        <a style="vertical-align: middle; " href="/problem/1">
+                                            <%= article.name %> 
+                                        </a>
+                                    </td>
+                                    <td>2020-03-21</td>
+                                </tr>
+                        <% }) %> 
+
+
+                                
+
+                            </tbody>
+                        </table>
+                </div>
+            </div>
+    </body>

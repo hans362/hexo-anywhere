@@ -1,6 +1,5 @@
 const express = require("express");
 const router = express.Router();
-const config = require("config-lite")(__dirname);
 const checkNotLogin = require("../middlewares/check").checkNotLogin;
 
 router.get("/", checkNotLogin, function (req, res, next) {
@@ -23,7 +22,7 @@ router.post("/", checkNotLogin, function (req, res, next) {
     req.flash("error", e.message);
     return res.redirect("back");
   }
-  if (username !== config.credentials.username || password !== config.credentials.password) {
+  if (username !== process.env.username || password !== process.env.password) {
     req.flash("error", "用户名或密码错误");
     return res.redirect("back");
   }

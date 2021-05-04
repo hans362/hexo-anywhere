@@ -14,7 +14,7 @@ const ref = firebase.initializeApp({
     "type": "service_account",
     "project_id": process.env.pid,
     "private_key_id": process.env.pkid,
-    "private_key": process.env.pk,
+    "private_key": process.env.pk.replace(/\\n/g, '\n'),
     "client_email": process.env.ce,
     "client_id": process.env.cid,
     "auth_uri": "https://accounts.google.com/o/oauth2/auth",

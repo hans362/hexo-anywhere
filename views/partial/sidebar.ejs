@@ -1,0 +1,65 @@
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+  <!-- Brand Logo -->
+  <a href="/" class="brand-link">
+    <center>
+      <span class="brand-text font-weight-light">HexoAnywhere</span>
+    </center>
+  </a>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <!-- Sidebar user panel (optional) -->
+    <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+      <div class="image">
+        <img
+          src="https://secure.gravatar.com/avatar/eadf60b33a61bc099af402484df02d48?s=64"
+          class="img-circle elevation-2"
+          alt="Avatar"
+        />
+      </div>
+      <div class="info">
+        <a href="#" class="d-block"> <%= user %> </a>
+      </div>
+    </div>
+
+    <!-- Sidebar Menu -->
+    <nav class="mt-2">
+      <ul
+        class="nav nav-pills nav-sidebar flex-column"
+        data-widget="treeview"
+        role="menu"
+        data-accordion="false"
+      >
+        <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+        <li class="nav-item">
+          <a href="/dash" class="nav-link <% if (page == "dash") { %>active<% } %> ">
+            <i class="nav-icon fas fa-tachometer-alt"></i>
+            <p>博客概览</p>
+          </a>
+        </li>
+        <li class="nav-header">文章管理</li>
+        <li class="nav-item">
+          <a href="/dash/posts" class="nav-link <% if (page == "dash-posts") { %>active<% } %> ">
+            <i class="nav-icon fas fa-list"></i>
+            <p>文章列表</p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="/dash/editor/new" class="nav-link <% if (page == "dash-editor") { %>active<% } %> ">
+            <i class="nav-icon fas fa-pencil-alt"></i>
+            <p>撰写文章</p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="/dash/drafts" class="nav-link <% if (page == "dash-drafts") { %>active<% } %> ">
+            <i class="nav-icon fas fa-book"></i>
+            <p>草稿列表</p>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <!-- /.sidebar-menu -->
+  </div>
+  <!-- /.sidebar -->
+</aside>

@@ -4,6 +4,8 @@ const session = require("express-session");
 const flash = require("connect-flash");
 const routes = require("./routes");
 const pkg = require("./package");
+const dotenv = require("dotenv");
+dotenv.config();
 
 const app = express();
 
@@ -11,16 +13,17 @@ const FirebaseStore = require("connect-session-firebase")(session);
 const firebase = require("firebase-admin");
 const ref = firebase.initializeApp({
   credential: firebase.credential.cert({
-    "type": "service_account",
-    "project_id": process.env.pid,
-    "private_key_id": process.env.pkid,
-    "private_key": process.env.pk.replace(/\\n/g, '\n'),
-    "client_email": process.env.ce,
-    "client_id": process.env.cid,
-    "auth_uri": "https://accounts.google.com/o/oauth2/auth",
-    "token_uri": "https://oauth2.googleapis.com/token",
-    "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
-    "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-booht%40hexoanywhere.iam.gserviceaccount.com"
+    type: "service_account",
+    project_id: process.env.pid,
+    private_key_id: process.env.pkid,
+    private_key: process.env.pk.replace(/\\n/g, "\n"),
+    client_email: process.env.ce,
+    client_id: process.env.cid,
+    auth_uri: "https://accounts.google.com/o/oauth2/auth",
+    token_uri: "https://oauth2.googleapis.com/token",
+    auth_provider_x509_cert_url: "https://www.googleapis.com/oauth2/v1/certs",
+    client_x509_cert_url:
+      "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-booht%40hexoanywhere.iam.gserviceaccount.com",
   }),
   databaseURL: process.env.db,
 });

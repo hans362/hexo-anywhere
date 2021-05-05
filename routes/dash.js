@@ -16,7 +16,8 @@ router.get("/", checkLogin, function (req, res, next) {
   })
     .then((response) => {
       //console.log(response.data.content);
-      res.render("dash", {
+      res.render("debug", {
+        page: "dash",
         articleList: Buffer.from(response.data.content, "base64").toString(),
       });
     })
@@ -38,14 +39,24 @@ router.get("/posts", checkLogin, function (req, res, next) {
   })
     .then((response) => {
       //console.log(response.data);
-      res.render("dash-posts", { articleList: response.data });
+      res.render("dash-posts", {
+        page: "dash-posts",
+        posts: response.data,
+      });
     })
     .catch((err) => {
       res.send(err);
     });
 });
 
-router.get("/posts/:postName", checkLogin, function (req, res, next) {
+router.get("/editor/new", checkLogin, function (req, res, next) {
+  res.render("dash-editor", {
+    page: "dash-editor",
+    content: "",
+  });
+});
+
+router.get("/editor/:postName", checkLogin, function (req, res, next) {
   const postName = req.params.postName;
   const rawUrl =
     "https://api.github.com/repos/hans362/MyBlog/contents/source/_posts/" +
@@ -63,8 +74,10 @@ router.get("/posts/:postName", checkLogin, function (req, res, next) {
   })
     .then((response) => {
       //console.log(response.data);
-      res.render("dash-edit", {
-        article: Buffer.from(response.data.content, "base64").toString(),
+      res.render("dash-editor", {
+        page: "dash-editor",
+        name: postName,
+        content: Buffer.from(response.data.content, "base64").toString(),
       });
     })
     .catch((err) => {

@@ -4,6 +4,7 @@ const session = require("express-session");
 const flash = require("connect-flash");
 const routes = require("./routes");
 const pkg = require("./package");
+
 const dotenv = require("dotenv");
 dotenv.config();
 
@@ -47,19 +48,7 @@ app.use(
   })
 );
 
-// flash 中间件，用来显示通知
 app.use(flash());
-app.use(
-  require("express-formidable")({
-    uploadDir: path.join(__dirname, "public/img"), // 上传文件目录
-    keepExtensions: true, // 保留后缀
-  })
-);
-
-app.locals.hexoanywhere = {
-  title: pkg.name,
-  description: pkg.description,
-};
 
 app.use(function (req, res, next) {
   res.locals.user = req.session.user;
@@ -68,9 +57,8 @@ app.use(function (req, res, next) {
   next();
 });
 
-// 路由
 routes(app);
-// 监听端口，启动程序
+
 app.listen(process.env.port, function () {
   console.log(`${pkg.name} is listening on port ${process.env.port}`);
 });

@@ -3,6 +3,8 @@ const express = require("express");
 const router = express.Router();
 const checkLogin = require("../middlewares/check").checkLogin;
 
+const firebase = require("firebase-admin");
+
 router.get("/", checkLogin, function (req, res, next) {
   //res.send("控制台");
   axios({
@@ -49,9 +51,29 @@ router.get("/posts", checkLogin, function (req, res, next) {
     });
 });
 
+router.get("/drafts", checkLogin, function (req, res, next) {
+  var db = firebase.database();
+  var ref = db.ref("drafts");
+  ref.on("value", function (snapshot) {
+    var drafts = snapshot.val();
+    res.render("dash-drafts", {
+      page: "dash-drafts",
+      drafts: drafts,
+    });
+  });
+});
+
 router.get("/editor/new", checkLogin, function (req, res, next) {
+  var draft = Math.round(Math.random() * 100000).toString();
+  /*var db = firebase.database();
+  var ref = db.ref("drafts");
+  ref.child(draft).set({
+    name: draft,
+    content: "",
+  });*/
   res.render("dash-editor", {
     page: "dash-editor",
+    name: draft,
     content: "",
   });
 });

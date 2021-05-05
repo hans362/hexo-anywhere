@@ -33,14 +33,20 @@
             <div class="col-lg-12">
               <div class="card">
                 <div class="card-body table-responsive">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="文章名称"
+                    value="<%= name %>"
+                  />
+                </div>
+                <div class="card-body table-responsive">
                   <link
                     rel="stylesheet"
                     href="https://cdn.jsdelivr.net/npm/easymde@latest/dist/easymde.min.css"
                   />
                   <script src="https://cdn.jsdelivr.net/npm/easymde@latest/dist/easymde.min.js"></script>
-                  <textarea class="form-control" id="broadcast">
-<%= content %></textarea
-                  >
+                  <textarea class="form-control"><%= content %></textarea>
                   <script>
                     var easyMDE = new EasyMDE({
                       inputStyle: "contenteditable",
@@ -69,6 +75,22 @@
                       uploadImage: true,
                     });
                   </script>
+                </div>
+                <div class="card-footer">
+                  <button
+                    type="button"
+                    class="btn btn-primary"
+                    onclick=""
+                  >
+                    保存草稿
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-danger float-right"
+                    onclick=""
+                  >
+                    正式发布
+                  </button>
                 </div>
               </div>
             </div>

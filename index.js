@@ -50,6 +50,13 @@ app.use(
 
 app.use(flash());
 
+app.use(
+  require("express-formidable")({
+    uploadDir: path.join(__dirname, "public/img"),
+    keepExtensions: true,
+  })
+);
+
 app.use(function (req, res, next) {
   res.locals.user = req.session.user;
   res.locals.success = req.flash("success").toString();

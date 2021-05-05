@@ -9,7 +9,7 @@ router.get("/", checkLogin, function (req, res, next) {
   //res.send("控制台");
   axios({
     method: "get",
-    url: `https://api.github.com/repos/hans362/MyBlog/contents/source/_posts/2017-annual-report.md`,
+    url: `https://api.github.com/repos/hans362/MyBlog/contents/source/_posts`,
     headers: {
       Authorization: `token ${process.env.pat}`,
       "Content-Type": "application/json",
@@ -18,9 +18,9 @@ router.get("/", checkLogin, function (req, res, next) {
   })
     .then((response) => {
       //console.log(response.data.content);
-      res.render("debug", {
+      res.render("dash", {
         page: "dash",
-        articleList: Buffer.from(response.data.content, "base64").toString(),
+        data: response.data,
       });
     })
     .catch((err) => {

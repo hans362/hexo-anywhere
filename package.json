@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/hans362/hexo-anywhere#readme",
   "dependencies": {
-    "axios": "^0.22.0",
+    "axios": "^0.23.0",
     "connect-flash": "^0.1.1",
     "connect-session-firebase": "github:hans362/connect-session-firebase",
     "dotenv": "^10.0.0",

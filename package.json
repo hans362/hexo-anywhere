@@ -21,7 +21,7 @@
     "axios": "^0.22.0",
     "connect-flash": "^0.1.1",
     "connect-session-firebase": "github:hans362/connect-session-firebase",
-    "dotenv": "^10.0.0",
+    "dotenv": "^14.3.0",
     "ejs": "^3.1.6",
     "express": "^4.17.1",
     "express-formidable": "^1.2.0",

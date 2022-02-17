@@ -23,7 +23,7 @@
     "connect-session-firebase": "github:hans362/connect-session-firebase",
     "dotenv": "^10.0.0",
     "ejs": "^3.1.6",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "express-formidable": "^1.2.0",
     "express-session": "^1.17.2",
     "firebase-admin": "^9.7.0",
